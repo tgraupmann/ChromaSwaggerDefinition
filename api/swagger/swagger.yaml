@@ -3,7 +3,7 @@ info:
   version: "0.0.1"
   title: Chroma Rest API
 # during dev, should point to your local machine
-host: localhost:53346
+host: localhost:62030
 # basePath prefixes all resource paths 
 basePath: /chromasdk
 # 
@@ -65,13 +65,18 @@ paths:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
 definitions:
+  EffectType:
+    type: string
+    enum: [CHROMA_WAVE, CHROMA_SPECTRUMCYCLING, CHROMA_BREATHING, CHROMA_BLINKING, CHROMA_REACTIVE, CHROMA_STATIC, CHROMA_CUSTOM, CHROMA_RESERVED, CHROMA_INVALID]
+    description: Chroma generic effects. Note that not all devices supported the listed effects
   KeyboardInput:
     type: object
     description: JSON Data
+    required:
+      - effect
     properties:
       effect:
-        type: string
-        description: Effect type
+        $ref: "#/definitions/EffectType"            
       param:
         type: object
         description: Effect definition
