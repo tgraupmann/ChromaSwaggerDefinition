@@ -83,17 +83,33 @@ definitions:
           type: array
           items:
             type: integer
+      color:
+        description: 6 by 22 columns of array containing the value of color in BGR format
+        type: array
+        items:
+          type: integer
+      key:
+        description: 6 by 22 columns of array containing the value of color on the specific key at the location in BGR format. Specify a bit mask of 0x01000000 with the color value for each keys that has an effect.
+        type: array
+        items:
+          type: integer
   KeyboardResponseId:
-    required:
-      - result
+    properties:
+      id:
+        type: string
+      result:
+        type: number
+      results:
+        type: array
+        items:
+          "$ref": "#/definitions/KeyboardResponseItemId"
+  KeyboardResponseItemId:
     properties:
       id:
         type: string
       result:
         type: number
   KeyboardResponse:
-    required:
-      - result
     properties:
       result:
         type: number
