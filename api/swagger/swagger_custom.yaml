@@ -1,0 +1,110 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Chroma Rest API
+# during dev, should point to your local machine
+host: localhost:80
+# basePath prefixes all resource paths 
+basePath: /chromasdk
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /heartbeat:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: heartbeat
+    put:
+      description: Creating effects on Keyboards by sending PUT to the URI. To turn off effect use CHROMA_NONE.
+      # used as the method name of the controller
+      operationId: heartbeat
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+  /keyboard:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: keyboard
+    put:
+      description: Creating effects on Keyboards by sending PUT to the URI. To turn off effect use CHROMA_NONE.
+      # used as the method name of the controller
+      operationId: putKeyboard
+      parameters:
+        - in: body
+          name: keyboardInput
+          schema:
+            $ref: "#/definitions/KeyboardInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/KeyboardResponse"
+    post:
+      description: Creating effects on Keyboards by sending POST to the URI. POST will return an effect id. To turn off effect use CHROMA_NONE.
+      operationId: postKeyboard
+      parameters:
+        - in: body
+          name: keyboardInput
+          schema:
+            $ref: "#/definitions/KeyboardInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/KeyboardResponseId"            
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
+  EffectType:
+    type: string
+    enum: 
+      - CHROMA_NONE
+      - CHROMA_WAVE
+      - CHROMA_SPECTRUMCYCLING
+      - CHROMA_BREATHING
+      - CHROMA_BLINKING
+      - CHROMA_REACTIVE
+      - CHROMA_STATIC
+      - CHROMA_CUSTOM
+      - CHROMA_RESERVED
+      - CHROMA_INVALID
+    description: Chroma generic effects. Note that not all devices supported the listed effects
+  KeyboardInput:
+    type: object
+    description: JSON Data
+    required:
+      - effect
+    properties:
+      effect:
+        $ref: "#/definitions/EffectType"            
+      param:
+        type: object
+        description: Effect definition
+        properties:
+          color:
+            type: integer
+            description: Color value in BGR format
+  KeyboardResponseId:
+    required:
+      - result
+    properties:
+      id:
+        type: string
+      result:
+        type: number
+  KeyboardResponse:
+    required:
+      - result
+    properties:
+      result:
+        type: number
