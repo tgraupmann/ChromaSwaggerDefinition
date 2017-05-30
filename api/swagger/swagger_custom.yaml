@@ -80,7 +80,9 @@ definitions:
         description: 2 dimensional array of size 6 rows by 22 columns. Each cell contains the color value in BGR format
         type: array
         items:
-          type: integer
+          type: array
+          items:
+            type: integer
   KeyboardResponseId:
     required:
       - result
