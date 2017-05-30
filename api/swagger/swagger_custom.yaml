@@ -18,22 +18,11 @@ consumes:
 produces:
   - application/json
 paths:
-  /heartbeat:
-    # binds a127 app logic to a route
-    x-swagger-router-controller: heartbeat
-    put:
-      description: Creating effects on Keyboards by sending PUT to the URI. To turn off effect use CHROMA_NONE.
-      # used as the method name of the controller
-      operationId: heartbeat
-      responses:
-        # responses may fall through to errors
-        default:
-          description: Response (PUT)
   /keyboard:
     # binds a127 app logic to a route
     x-swagger-router-controller: keyboard
     put:
-      description: Creating effects on Keyboards by sending PUT to the URI. To turn off effect use CHROMA_NONE.
+      description: To create a custom effect use CHROMA_CUSTOM and fill in the colors in each element in the array.
       # used as the method name of the controller
       operationId: putKeyboard
       parameters:
@@ -48,7 +37,7 @@ paths:
           schema:
             $ref: "#/definitions/KeyboardResponse"
     post:
-      description: Creating effects on Keyboards by sending POST to the URI. POST will return an effect id. To turn off effect use CHROMA_NONE.
+      description: To create a custom effect use CHROMA_CUSTOM and fill in the colors in each element in the array.
       operationId: postKeyboard
       parameters:
         - in: body
@@ -88,12 +77,10 @@ definitions:
       effect:
         $ref: "#/definitions/EffectType"            
       param:
-        type: object
-        description: Effect definition
-        properties:
-          color:
-            type: integer
-            description: Color value in BGR format
+        description: 2 dimensional array of size 6 rows by 22 columns. Each cell contains the color value in BGR format
+        type: array
+        items:
+          type: integer
   KeyboardResponseId:
     required:
       - result
