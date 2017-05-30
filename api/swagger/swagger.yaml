@@ -101,10 +101,10 @@ definitions:
       id:
         type: string
       result:
-        type: number
+        type: integer
   KeyboardResponse:
     required:
       - result
     properties:
       result:
-        type: number
+        type: integer

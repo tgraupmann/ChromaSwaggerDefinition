@@ -98,7 +98,7 @@ definitions:
       id:
         type: string
       result:
-        type: number
+        type: integer
       results:
         type: array
         items:
@@ -108,8 +108,8 @@ definitions:
       id:
         type: string
       result:
-        type: number
+        type: integer
   KeyboardResponse:
     properties:
       result:
-        type: number
+        type: integer
