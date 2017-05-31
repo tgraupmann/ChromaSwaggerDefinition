@@ -20,27 +20,27 @@ produces:
 paths:
   /chromasdk:
     # binds a127 app logic to a route
-    x-swagger-router-controller: base
+    x-swagger-router-controller: chromasdk
     post:
       description: Initialize the client.
       # used as the method name of the controller
-      operationId: base
+      operationId: chromasdk
       parameters:
         - in: body
           name: baseInput
           schema:
-            $ref: "#/definitions/BaseInput"
+            $ref: "#/definitions/ChromaSdkInput"
       responses:
         # responses may fall through to errors
         default:
           description: Response (POST)
           schema:
-            $ref: "#/definitions/SessionResponse"
+            $ref: "#/definitions/ChromaSdkResponse"
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
 definitions:
-  BaseInput:
+  ChromaSdkInput:
     type: object
     description: JSON Data
     properties:
@@ -61,7 +61,7 @@ definitions:
           type: string
       category:
         type: string
-  SessionResponse:
+  ChromaSdkResponse:
     properties:
       sessionid:
         type: string
