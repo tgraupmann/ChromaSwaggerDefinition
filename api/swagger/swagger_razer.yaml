@@ -1,0 +1,69 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Razer REST API
+# during dev, should point to your local machine
+host: localhost:54235
+# basePath prefixes all resource paths 
+basePath: /razer
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /chromasdk:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: base
+    post:
+      description: Initialize the client.
+      # used as the method name of the controller
+      operationId: base
+      parameters:
+        - in: body
+          name: baseInput
+          schema:
+            $ref: "#/definitions/BaseInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/SessionResponse"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
+  BaseInput:
+    type: object
+    description: JSON Data
+    properties:
+      title:
+        type: string
+      description:
+        type: string
+      author:
+        type: object
+        properties:
+          name:
+            type: string
+          contact:
+            type: string
+      device_supported:
+        type: array
+        items:
+          type: string
+      category:
+        type: string
+  SessionResponse:
+    properties:
+      sessionid:
+        type: string
+      uri:
+        type: string
