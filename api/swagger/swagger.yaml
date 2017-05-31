@@ -22,45 +22,238 @@ paths:
     # binds a127 app logic to a route
     x-swagger-router-controller: heartbeat
     put:
-      description: Creating effects on Keyboards by sending PUT to the URI. To turn off effect use CHROMA_NONE.
+      description: To turn off effect use CHROMA_NONE.
       # used as the method name of the controller
       operationId: heartbeat
       responses:
         # responses may fall through to errors
         default:
           description: Response (PUT)
-  /keyboard:
+  /effect:
     # binds a127 app logic to a route
-    x-swagger-router-controller: keyboard
+    x-swagger-router-controller: effect
     put:
-      description: Creating effects on Keyboards by sending PUT to the URI. To turn off effect use CHROMA_NONE.
+      description: Setting effect with an identifier or set of identifiers.
       # used as the method name of the controller
-      operationId: putKeyboard
+      operationId: putEffect
       parameters:
         - in: body
-          name: keyboardInput
+          name: data
           schema:
-            $ref: "#/definitions/KeyboardInput"
+            $ref: "#/definitions/EffectIdentifierInput"
       responses:
         # responses may fall through to errors
         default:
           description: Response (PUT)
           schema:
-            $ref: "#/definitions/KeyboardResponse"
-    post:
-      description: Creating effects on Keyboards by sending POST to the URI. POST will return an effect id. To turn off effect use CHROMA_NONE.
-      operationId: postKeyboard
+            $ref: "#/definitions/EffectIdentifierResponse"
+    delete:
+      description: Deleting an effect or a set of effects with identifier. Effects must be deleted to free resources.
+      # used as the method name of the controller
+      operationId: deleteEffect
       parameters:
         - in: body
-          name: keyboardInput
+          name: data
           schema:
-            $ref: "#/definitions/KeyboardInput"
+            $ref: "#/definitions/EffectIdentifierInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectIdentifierResponse"
+  /chromalink:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: chromalink
+    put:
+      description: To turn off effect use CHROMA_NONE.
+      # used as the method name of the controller
+      operationId: putChromaLink
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: POST will return an effect id. To turn off effect use CHROMA_NONE.
+      operationId: postChromaLink
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectInput"
       responses:
         # responses may fall through to errors
         default:
           description: Response (POST)
           schema:
-            $ref: "#/definitions/KeyboardResponseId"            
+            $ref: "#/definitions/EffectResponseId"     
+  /headset:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: headset
+    put:
+      description: To turn off effect use CHROMA_NONE.
+      # used as the method name of the controller
+      operationId: putHeadset
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: POST will return an effect id. To turn off effect use CHROMA_NONE.
+      operationId: postHeadset
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"     
+  /keyboard:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: keyboard
+    put:
+      description: To turn off effect use CHROMA_NONE.
+      # used as the method name of the controller
+      operationId: putKeyboard
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: POST will return an effect id. To turn off effect use CHROMA_NONE.
+      operationId: postKeyboard
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"      
+  /keypad:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: keypad
+    put:
+      description: To turn off effect use CHROMA_NONE.
+      # used as the method name of the controller
+      operationId: putKeypad
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: POST will return an effect id. To turn off effect use CHROMA_NONE.
+      operationId: postKeypad
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"      
+  /mouse:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: mouse
+    put:
+      description: To turn off effect use CHROMA_NONE.
+      # used as the method name of the controller
+      operationId: putMouse
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: POST will return an effect id. To turn off effect use CHROMA_NONE.
+      operationId: postMouse
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
+  /mousepad:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: mousepad
+    put:
+      description: To turn off effect use CHROMA_NONE.
+      # used as the method name of the controller
+      operationId: putMousepad
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: POST will return an effect id. To turn off effect use CHROMA_NONE.
+      operationId: postMousepad
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
@@ -79,7 +272,7 @@ definitions:
       - CHROMA_RESERVED
       - CHROMA_INVALID
     description: Chroma generic effects. Note that not all devices supported the listed effects
-  KeyboardInput:
+  EffectInput:
     type: object
     description: JSON Data
     required:
@@ -94,7 +287,7 @@ definitions:
           color:
             type: integer
             description: Color value in BGR format
-  KeyboardResponseId:
+  EffectResponseId:
     required:
       - result
     properties:
@@ -102,9 +295,26 @@ definitions:
         type: string
       result:
         type: integer
-  KeyboardResponse:
+  EffectResponse:
     required:
       - result
     properties:
       result:
         type: integer
+  EffectIdentifierInput:
+    properties:
+      id:
+        type: string
+      ids:
+        type: array
+        items:
+          type: string
+  EffectIdentifierResponse:
+    properties:
+      result:
+        type: integer
+      results:
+        type: array
+        items:
+          type: integer
+
