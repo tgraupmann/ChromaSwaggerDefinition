@@ -151,5 +151,5 @@ definitions:
     properties:
       sessionid:
         type: string
-      url:
+      uri:
         type: string
