@@ -36,16 +36,6 @@ paths:
           description: Response (POST)
           schema:
             $ref: "#/definitions/PostChromaSdkResponse"
-    delete:
-      description: Uninitialize the Chroma SDK
-      # used as the method name of the controller
-      operationId: deleteChromaSdk
-      responses:
-        # responses may fall through to errors
-        default:
-          description: Response (POST)
-          schema:
-            $ref: "#/definitions/DeleteChromaSdkResponse"
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
@@ -77,8 +67,4 @@ definitions:
         type: string
       uri:
         type: string
-  DeleteChromaSdkResponse:
-    properties:
-      result:
-        type: integer
-        
+     
