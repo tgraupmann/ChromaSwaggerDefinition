@@ -22,9 +22,9 @@ paths:
     # binds a127 app logic to a route
     x-swagger-router-controller: chromasdk
     post:
-      description: Initialize the client.
+      description: Initialize the Chroma SDK
       # used as the method name of the controller
-      operationId: chromasdk
+      operationId: postChromaSdk
       parameters:
         - in: body
           name: baseInput
@@ -35,7 +35,17 @@ paths:
         default:
           description: Response (POST)
           schema:
-            $ref: "#/definitions/ChromaSdkResponse"
+            $ref: "#/definitions/PostChromaSdkResponse"
+    delete:
+      description: Uninitialize the Chroma SDK
+      # used as the method name of the controller
+      operationId: deleteChromaSdk
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/DeleteChromaSdkResponse"
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
@@ -61,9 +71,14 @@ definitions:
           type: string
       category:
         type: string
-  ChromaSdkResponse:
+  PostChromaSdkResponse:
     properties:
       sessionid:
         type: string
       uri:
         type: string
+  DeleteChromaSdkResponse:
+    properties:
+      result:
+        type: integer
+        
