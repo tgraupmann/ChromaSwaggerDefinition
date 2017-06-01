@@ -18,6 +18,74 @@ consumes:
 produces:
   - application/json
 paths:
+  /chromalink:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: chromalink
+    put:
+      description: To create a custom effect use CHROMA_CUSTOM and fill in the colors in each element in the array.
+      # used as the method name of the controller
+      operationId: putChromaLink
+      parameters:
+        - in: body
+          name: effectInput
+          description: Array dimensions are 1 rows by 5 columns.
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: To create a custom effect use CHROMA_CUSTOM and fill in the colors in each element in the array.
+      operationId: postChromaLink
+      parameters:
+        - in: body
+          name: effectInput
+          description: Array dimensions are 1 rows by 5 columns.
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
+  /headset:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: headset
+    put:
+      description: To create a custom effect use CHROMA_CUSTOM and fill in the colors in each element in the array.
+      # used as the method name of the controller
+      operationId: putHeadset
+      parameters:
+        - in: body
+          name: effectInput
+          description: Array dimensions are 9 rows by 7 columns.
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: To create a custom effect use CHROMA_CUSTOM and fill in the colors in each element in the array.
+      operationId: postHeadset
+      parameters:
+        - in: body
+          name: effectInput
+          description: Array dimensions are 9 rows by 7 columns.
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
   /keyboard:
     # binds a127 app logic to a route
     x-swagger-router-controller: keyboard
@@ -27,29 +95,133 @@ paths:
       operationId: putKeyboard
       parameters:
         - in: body
-          name: keyboardInput
+          name: effectInput
+          description: Array dimensions are 6 rows by 22 columns.
           schema:
-            $ref: "#/definitions/KeyboardInput"
+            $ref: "#/definitions/EffectInput"
       responses:
         # responses may fall through to errors
         default:
           description: Response (PUT)
           schema:
-            $ref: "#/definitions/KeyboardResponse"
+            $ref: "#/definitions/EffectResponse"
     post:
       description: To create a custom effect use CHROMA_CUSTOM and fill in the colors in each element in the array.
       operationId: postKeyboard
       parameters:
         - in: body
-          name: keyboardInput
+          name: effectInput
+          description: Array dimensions are 6 rows by 22 columns.
           schema:
-            $ref: "#/definitions/KeyboardInput"
+            $ref: "#/definitions/EffectInput"
       responses:
         # responses may fall through to errors
         default:
           description: Response (POST)
           schema:
-            $ref: "#/definitions/KeyboardResponseId"            
+            $ref: "#/definitions/EffectResponseId"
+  /keypad:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: keypad
+    put:
+      description: To create a custom effect use CHROMA_CUSTOM and fill in the colors in each element in the array.
+      # used as the method name of the controller
+      operationId: putKeypad
+      parameters:
+        - in: body
+          name: effectInput
+          description: Array dimensions are 4 rows by 5 columns.
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: To create a custom effect use CHROMA_CUSTOM and fill in the colors in each element in the array.
+      operationId: postKeypad
+      parameters:
+        - in: body
+          name: effectInput
+          description: Array dimensions are 4 rows by 5 columns.
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"   
+  /mouse:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: mouse
+    put:
+      description: To create a custom effect use CHROMA_CUSTOM and fill in the colors in each element in the array.
+      # used as the method name of the controller
+      operationId: putMouse
+      parameters:
+        - in: body
+          name: effectInput
+          description: Array dimensions are 9 rows by 7 columns.
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: To create a custom effect use CHROMA_CUSTOM and fill in the colors in each element in the array.
+      operationId: postMouse
+      parameters:
+        - in: body
+          name: effectInput
+          description: Array dimensions are 9 rows by 7 columns.
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
+  /mousepad:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: mousepad
+    put:
+      description: To create a custom effect use CHROMA_CUSTOM and fill in the colors in each element in the array.
+      # used as the method name of the controller
+      operationId: putMousepad
+      parameters:
+        - in: body
+          name: effectInput
+          description: Array dimensions are 1 rows by 15 columns.
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: To create a custom effect use CHROMA_CUSTOM and fill in the colors in each element in the array.
+      operationId: postMousepad
+      parameters:
+        - in: body
+          name: effectInput
+          description: Array dimensions are 1 rows by 15 columns.
+          schema:
+            $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
@@ -68,7 +240,7 @@ definitions:
       - CHROMA_RESERVED
       - CHROMA_INVALID
     description: Chroma generic effects. Note that not all devices supported the listed effects
-  KeyboardInput:
+  EffectInput:
     type: object
     description: JSON Data
     required:
@@ -77,23 +249,23 @@ definitions:
       effect:
         $ref: "#/definitions/EffectType"            
       param:
-        description: 2 dimensional array of size 6 rows by 22 columns. Each cell contains the color value in BGR format
+        description: Two-dimensional color array. See method for dimension details.
         type: array
         items:
           type: array
           items:
             type: integer
       color:
-        description: 6 by 22 columns of array containing the value of color in BGR format
+        description: Two-dimensional color array. See method for dimension details.
         type: array
         items:
           type: integer
       key:
-        description: 6 by 22 columns of array containing the value of color on the specific key at the location in BGR format. Specify a bit mask of 0x01000000 with the color value for each keys that has an effect.
+        description: Two-dimensional color array. See method for dimension details.
         type: array
         items:
           type: integer
-  KeyboardResponseId:
+  EffectResponseId:
     properties:
       id:
         type: string
@@ -102,14 +274,14 @@ definitions:
       results:
         type: array
         items:
-          "$ref": "#/definitions/KeyboardResponseItemId"
-  KeyboardResponseItemId:
+          "$ref": "#/definitions/EffectResponseItemId"
+  EffectResponseItemId:
     properties:
       id:
         type: string
       result:
         type: integer
-  KeyboardResponse:
+  EffectResponse:
     properties:
       result:
         type: integer
