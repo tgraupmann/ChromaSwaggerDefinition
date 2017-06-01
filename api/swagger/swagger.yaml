@@ -316,5 +316,7 @@ definitions:
       results:
         type: array
         items:
-          type: integer
-
+          type: object
+          properties:
+            result:
+              type: integer
