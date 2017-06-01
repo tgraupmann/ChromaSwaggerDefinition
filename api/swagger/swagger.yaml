@@ -59,7 +59,7 @@ paths:
       responses:
         # responses may fall through to errors
         default:
-          description: Response (PUT)
+          description: Response (DELETE)
           schema:
             $ref: "#/definitions/EffectIdentifierResponse"
   /chromalink:
