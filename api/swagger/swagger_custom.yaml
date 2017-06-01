@@ -28,9 +28,9 @@ paths:
       parameters:
         - in: body
           name: effectInput
-          description: Array dimensions are 1 rows by 5 columns.
+          description: Array dimensions are 5 elements.
           schema:
-            $ref: "#/definitions/EffectInput"
+            $ref: "#/definitions/EffectInput1D"
       responses:
         # responses may fall through to errors
         default:
@@ -43,9 +43,9 @@ paths:
       parameters:
         - in: body
           name: effectInput
-          description: Array dimensions are 1 rows by 5 columns.
+          description: Array dimensions are 5 elements.
           schema:
-            $ref: "#/definitions/EffectInput"
+            $ref: "#/definitions/EffectInput1D"
       responses:
         # responses may fall through to errors
         default:
@@ -62,9 +62,9 @@ paths:
       parameters:
         - in: body
           name: effectInput
-          description: Array dimensions are 9 rows by 7 columns.
+          description: Array dimensions are 5 elements.
           schema:
-            $ref: "#/definitions/EffectInput"
+            $ref: "#/definitions/EffectInput1D"
       responses:
         # responses may fall through to errors
         default:
@@ -77,9 +77,9 @@ paths:
       parameters:
         - in: body
           name: effectInput
-          description: Array dimensions are 9 rows by 7 columns.
+          description: Array dimensions are 5 elements.
           schema:
-            $ref: "#/definitions/EffectInput"
+            $ref: "#/definitions/EffectInput1D"
       responses:
         # responses may fall through to errors
         default:
@@ -198,9 +198,9 @@ paths:
       parameters:
         - in: body
           name: effectInput
-          description: Array dimensions are 1 rows by 15 columns.
+          description: Array dimensions are 15 elements.
           schema:
-            $ref: "#/definitions/EffectInput"
+            $ref: "#/definitions/EffectInput1D"
       responses:
         # responses may fall through to errors
         default:
@@ -213,9 +213,9 @@ paths:
       parameters:
         - in: body
           name: effectInput
-          description: Array dimensions are 1 rows by 15 columns.
+          description: Array dimensions are 15 elements.
           schema:
-            $ref: "#/definitions/EffectInput"
+            $ref: "#/definitions/EffectInput1D"
       responses:
         # responses may fall through to errors
         default:
@@ -260,9 +260,36 @@ definitions:
         description: Two-dimensional color array. See method for dimension details.
         type: array
         items:
-          type: integer
+          type: array
+          items:
+            type: integer
       key:
         description: Two-dimensional color array. See method for dimension details.
+        type: array
+        items:
+          type: array
+          items:
+            type: integer
+  EffectInput1D:
+    type: object
+    description: JSON Data
+    required:
+      - effect
+    properties:
+      effect:
+        $ref: "#/definitions/EffectType"            
+      param:
+        description: One-dimensional color array. See method for dimension details.
+        type: array
+        items:
+          type: integer
+      color:
+        description: One-dimensional color array. See method for dimension details.
+        type: array
+        items:
+          type: integer
+      key:
+        description: One-dimensional color array. See method for dimension details.
         type: array
         items:
           type: integer
