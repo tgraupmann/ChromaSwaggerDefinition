@@ -55,7 +55,7 @@ paths:
         - in: body
           name: data
           schema:
-            $ref: "#/definitions/EffectIdentifierInput"
+            $ref: "#/definitions/EffectIdentifierArrayInput"
       responses:
         # responses may fall through to errors
         default:
@@ -305,6 +305,12 @@ definitions:
     properties:
       id:
         type: string
+      ids:
+        type: array
+        items:
+          type: string
+  EffectIdentifierArrayInput:
+    properties:
       ids:
         type: array
         items:
