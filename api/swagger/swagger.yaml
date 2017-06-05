@@ -58,7 +58,7 @@ paths:
         - in: body
           name: data
           schema:
-            $ref: "#/definitions/EffectIdentifierArrayInput"
+            $ref: "#/definitions/EffectIdentifierInput"
       responses:
         # responses may fall through to errors
         default:
@@ -97,6 +97,28 @@ paths:
           description: Response (POST)
           schema:
             $ref: "#/definitions/EffectResponseId"     
+  /chromalink/none:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: chromalink_none
+    put:
+      description: Turn off effect
+      # used as the method name of the controller
+      operationId: putChromaLinkNone
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: Turn off effect. POST will return an effect id.
+      operationId: postChromaLinkNone
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"      
   /headset:
     # binds a127 app logic to a route
     x-swagger-router-controller: headset
@@ -129,6 +151,28 @@ paths:
           description: Response (POST)
           schema:
             $ref: "#/definitions/EffectResponseId"     
+  /headset/none:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: headset_none
+    put:
+      description: Turn off effect
+      # used as the method name of the controller
+      operationId: putHeadsetNone
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: Turn off effect. POST will return an effect id.
+      operationId: postHeadsetNone
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
   /keyboard:
     # binds a127 app logic to a route
     x-swagger-router-controller: keyboard
@@ -155,6 +199,28 @@ paths:
           name: data
           schema:
             $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"      
+  /keyboard/none:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: keyboard_none
+    put:
+      description: Turn off effect
+      # used as the method name of the controller
+      operationId: putKeyboardNone
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: Turn off effect. POST will return an effect id.
+      operationId: postKeyboardNone
       responses:
         # responses may fall through to errors
         default:
@@ -193,6 +259,28 @@ paths:
           description: Response (POST)
           schema:
             $ref: "#/definitions/EffectResponseId"      
+  /keypad/none:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: keypad_none
+    put:
+      description: Turn off effect
+      # used as the method name of the controller
+      operationId: putKeypadNone
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: Turn off effect. POST will return an effect id.
+      operationId: postKeypadNone
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
   /mouse:
     # binds a127 app logic to a route
     x-swagger-router-controller: mouse
@@ -219,6 +307,28 @@ paths:
           name: data
           schema:
             $ref: "#/definitions/EffectInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
+  /mouse/none:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: mouse_none
+    put:
+      description: Turn off effect
+      # used as the method name of the controller
+      operationId: putMouseNone
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: Turn off effect. POST will return an effect id.
+      operationId: postMouseNone
       responses:
         # responses may fall through to errors
         default:
@@ -257,6 +367,28 @@ paths:
           description: Response (POST)
           schema:
             $ref: "#/definitions/EffectResponseId"
+  /mousepad/none:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: mousepad_none
+    put:
+      description: Turn off effect
+      # used as the method name of the controller
+      operationId: putMousepadNone
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: Turn off effect. POST will return an effect id.
+      operationId: postMousepadNone
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
@@ -272,6 +404,7 @@ definitions:
       - CHROMA_REACTIVE
       - CHROMA_STATIC
       - CHROMA_CUSTOM
+      - CHROMA_CUSTOM2
       - CHROMA_RESERVED
       - CHROMA_INVALID
     description: Chroma generic effects. Note that not all devices supported the listed effects
@@ -308,12 +441,6 @@ definitions:
     properties:
       id:
         type: string
-      ids:
-        type: array
-        items:
-          type: string
-  EffectIdentifierArrayInput:
-    properties:
       ids:
         type: array
         items:
