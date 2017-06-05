@@ -619,13 +619,9 @@ definitions:
     type: object
     description: JSON Data
     properties:
-      param:
-        type: object
-        description: Effect definition
-        properties:
-          color:
-            type: integer
-            description: Color value in BGR format
+      color:
+        type: integer
+        description: Color value in BGR format
   EffectResponseId:
     required:
       - result
