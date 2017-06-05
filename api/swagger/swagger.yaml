@@ -154,6 +154,38 @@ paths:
         default:
           description: Response (POST)
           schema:
+            $ref: "#/definitions/EffectResponseId"
+  /chromalink/custom:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: chromalink_custom
+    put:
+      description: 1D array with 5 elements.
+      # used as the method name of the controller
+      operationId: putChromaLinkCustom
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectArray1dInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: 1D array with 5 elements. POST will return an effect id.
+      operationId: postChromaLinkCustom
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectArray1dInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
             $ref: "#/definitions/EffectResponseId"     
   /headset:
     # binds a127 app logic to a route
@@ -239,6 +271,38 @@ paths:
           required: true
           schema:
             type: integer
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
+  /headset/custom:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: headset_custom
+    put:
+      description: 1D array with 5 elements.
+      # used as the method name of the controller
+      operationId: putHeadsetCustom
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectArray1dInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: 1D array with 5 elements. POST will return an effect id.
+      operationId: postHeadsetCustom
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectArray1dInput"
       responses:
         # responses may fall through to errors
         default:
@@ -335,6 +399,38 @@ paths:
           description: Response (POST)
           schema:
             $ref: "#/definitions/EffectResponseId"
+  /keyboard/custom:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: keyboard_custom
+    put:
+      description: 2D array with 6 rows of 22 columns.
+      # used as the method name of the controller
+      operationId: putKeyboardCustom
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectArray2dInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: 2D array with 6 rows of 22 columns. POST will return an effect id.
+      operationId: postKeyboardCustom
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectArray2dInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
   /keypad:
     # binds a127 app logic to a route
     x-swagger-router-controller: keypad
@@ -419,6 +515,38 @@ paths:
           required: true
           schema:
             type: integer
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
+  /keypad/custom:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: keypad_custom
+    put:
+      description: 2D array with 4 rows of 5 columns.
+      # used as the method name of the controller
+      operationId: putKeypadCustom
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectArray2dInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: 1D array with 4 rows of 5 columns. POST will return an effect id.
+      operationId: postKeypadCustom
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectArray2dInput"
       responses:
         # responses may fall through to errors
         default:
@@ -515,6 +643,38 @@ paths:
           description: Response (POST)
           schema:
             $ref: "#/definitions/EffectResponseId"
+  /mouse/custom2:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: mouse_custom
+    put:
+      description: 2D array with 9 rows of 7 columns.
+      # used as the method name of the controller
+      operationId: putMouseCustom
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectArray2dInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: 2D array with 9 rows of 7 columns. POST will return an effect id.
+      operationId: postMouseCustom
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectArray2dInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
   /mousepad:
     # binds a127 app logic to a route
     x-swagger-router-controller: mousepad
@@ -605,6 +765,38 @@ paths:
           description: Response (POST)
           schema:
             $ref: "#/definitions/EffectResponseId"
+  /mousepad/custom:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: mousepad_custom
+    put:
+      description: 1D array with 15 elements.
+      # used as the method name of the controller
+      operationId: putMousepadCustom
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectArray1dInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: 1D array with 15 elements. POST will return an effect id.
+      operationId: postMousepadCustom
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectArray1dInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
@@ -639,6 +831,18 @@ definitions:
           color:
             type: integer
             description: Color value in BGR format
+  EffectArray1dInput:
+    type: array
+    description: 1 dimensional array. Color values are in BGR format.
+    items:
+      type: integer
+  EffectArray2dInput:
+    type: array
+    description: 2 dimensional array. Color values are in BGR format.
+    items:
+      type: array
+      items:
+        type: integer
   EffectResponseId:
     required:
       - result
