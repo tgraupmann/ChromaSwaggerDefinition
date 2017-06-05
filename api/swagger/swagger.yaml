@@ -47,10 +47,13 @@ paths:
           description: Response (PUT)
           schema:
             $ref: "#/definitions/EffectIdentifierResponse"
-    delete:
-      description: Deleting an effect or a set of effects with identifier. Effects must be deleted to free resources.
+  /effect/remove:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: effect_remove
+    put:
+      description: Remove an effect or a set of effects with identifier. Effects must be removed to free resources.
       # used as the method name of the controller
-      operationId: deleteEffect
+      operationId: removeEffect
       parameters:
         - in: body
           name: data
@@ -59,7 +62,7 @@ paths:
       responses:
         # responses may fall through to errors
         default:
-          description: Response (DELETE)
+          description: Response (PUT)
           schema:
             $ref: "#/definitions/EffectIdentifierResponse"
   /chromalink:
