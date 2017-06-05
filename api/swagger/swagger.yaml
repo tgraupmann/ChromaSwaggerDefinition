@@ -119,6 +119,38 @@ paths:
           description: Response (POST)
           schema:
             $ref: "#/definitions/EffectResponseId"      
+  /chromalink/static:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: chromalink_static
+    put:
+      description: To set static color.
+      # used as the method name of the controller
+      operationId: putChromaLinkStatic
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectStaticInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: To set static color. POST will return an effect id.
+      operationId: postChromaLinkStatic
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectStaticInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"     
   /headset:
     # binds a127 app logic to a route
     x-swagger-router-controller: headset
@@ -167,6 +199,38 @@ paths:
     post:
       description: Turn off effect. POST will return an effect id.
       operationId: postHeadsetNone
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
+  /headset/static:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: headset_static
+    put:
+      description: To set static color.
+      # used as the method name of the controller
+      operationId: putHeadsetStatic
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectStaticInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: To set static color. POST will return an effect id.
+      operationId: postHeadsetStatic
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectStaticInput"
       responses:
         # responses may fall through to errors
         default:
@@ -227,6 +291,38 @@ paths:
           description: Response (POST)
           schema:
             $ref: "#/definitions/EffectResponseId"      
+  /keyboard/static:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: keyboard_static
+    put:
+      description: To set static color.
+      # used as the method name of the controller
+      operationId: putKeyboardStatic
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectStaticInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: To set static color. POST will return an effect id.
+      operationId: postKeyboardStatic
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectStaticInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
   /keypad:
     # binds a127 app logic to a route
     x-swagger-router-controller: keypad
@@ -275,6 +371,38 @@ paths:
     post:
       description: Turn off effect. POST will return an effect id.
       operationId: postKeypadNone
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
+  /keypad/static:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: keypad_static
+    put:
+      description: To set static color.
+      # used as the method name of the controller
+      operationId: putKeypadStatic
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectStaticInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: To set static color. POST will return an effect id.
+      operationId: postKeypadStatic
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectStaticInput"
       responses:
         # responses may fall through to errors
         default:
@@ -335,6 +463,38 @@ paths:
           description: Response (POST)
           schema:
             $ref: "#/definitions/EffectResponseId"
+  /mouse/static:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: mouse_static
+    put:
+      description: To set static color.
+      # used as the method name of the controller
+      operationId: putMouseStatic
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectStaticInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: To set static color. POST will return an effect id.
+      operationId: postMouseStatic
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectStaticInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
   /mousepad:
     # binds a127 app logic to a route
     x-swagger-router-controller: mousepad
@@ -389,6 +549,38 @@ paths:
           description: Response (POST)
           schema:
             $ref: "#/definitions/EffectResponseId"
+  /mousepad/static:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: mousepad_static
+    put:
+      description: To set static color.
+      # used as the method name of the controller
+      operationId: putMousepadStatic
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectStaticInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (PUT)
+          schema:
+            $ref: "#/definitions/EffectResponse"
+    post:
+      description: To set static color. POST will return an effect id.
+      operationId: postMousepadStatic
+      parameters:
+        - in: body
+          name: data
+          schema:
+            $ref: "#/definitions/EffectStaticInput"
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/EffectResponseId"
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
@@ -416,6 +608,17 @@ definitions:
     properties:
       effect:
         $ref: "#/definitions/EffectType"            
+      param:
+        type: object
+        description: Effect definition
+        properties:
+          color:
+            type: integer
+            description: Color value in BGR format
+  EffectStaticInput:
+    type: object
+    description: JSON Data
+    properties:
       param:
         type: object
         description: Effect definition
