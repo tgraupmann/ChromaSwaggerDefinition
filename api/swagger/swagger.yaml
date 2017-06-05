@@ -130,6 +130,7 @@ paths:
         - in: body
           name: color
           description: Color value in BGR format
+          required: true
           schema:
             type: integer
       responses:
@@ -145,6 +146,7 @@ paths:
         - in: body
           name: color
           description: Color value in BGR format
+          required: true
           schema:
             type: integer
       responses:
@@ -218,6 +220,7 @@ paths:
         - in: body
           name: color
           description: Color value in BGR format
+          required: true
           schema:
             type: integer
       responses:
@@ -233,6 +236,7 @@ paths:
         - in: body
           name: color
           description: Color value in BGR format
+          required: true
           schema:
             type: integer
       responses:
@@ -306,6 +310,7 @@ paths:
         - in: body
           name: color
           description: Color value in BGR format
+          required: true
           schema:
             type: integer
       responses:
@@ -321,6 +326,7 @@ paths:
         - in: body
           name: color
           description: Color value in BGR format
+          required: true
           schema:
             type: integer
       responses:
@@ -394,6 +400,7 @@ paths:
         - in: body
           name: color
           description: Color value in BGR format
+          required: true
           schema:
             type: integer
       responses:
@@ -409,6 +416,7 @@ paths:
         - in: body
           name: color
           description: Color value in BGR format
+          required: true
           schema:
             type: integer
       responses:
@@ -482,6 +490,7 @@ paths:
         - in: body
           name: color
           description: Color value in BGR format
+          required: true
           schema:
             type: integer
       responses:
@@ -497,6 +506,7 @@ paths:
         - in: body
           name: color
           description: Color value in BGR format
+          required: true
           schema:
             type: integer
       responses:
@@ -570,6 +580,7 @@ paths:
         - in: body
           name: color
           description: Color value in BGR format
+          required: true
           schema:
             type: integer
       responses:
@@ -585,6 +596,7 @@ paths:
         - in: body
           name: color
           description: Color value in BGR format
+          required: true
           schema:
             type: integer
       responses:
