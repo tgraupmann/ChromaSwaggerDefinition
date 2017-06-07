@@ -844,12 +844,21 @@ definitions:
           color:
             type: integer
             description: Color value in BGR format
+          color1:
+            type: integer
+            description: Color 1 value in BGR format
+          color2:
+            type: integer
+            description: Color 2 value in BGR format
           direction:
             type: integer
             description: Effect direction
           duration:
             type: integer
             description: Effect duration
+          type:
+            type: integer
+            description: Effect type
   EffectArray1dInput:
     type: array
     description: 1 dimensional array. Color values are in BGR format.
