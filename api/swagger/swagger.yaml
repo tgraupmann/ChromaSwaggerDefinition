@@ -841,6 +841,9 @@ definitions:
         type: object
         description: Effect definition
         properties:
+          direction:
+            type: integer
+            description: 1 for RIGHT, 2 for LEFT
           color:
             type: integer
             description: Color value in BGR format
