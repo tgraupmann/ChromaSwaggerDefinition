@@ -18,6 +18,19 @@ consumes:
 produces:
   - application/json
 paths:
+  /chromasdk:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: chromasdk
+    delete:
+      description: Delete the Chroma SDK session
+      # used as the method name of the controller
+      operationId: deleteChromaSdk
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (DELETE)
+          schema:
+            $ref: "#/definitions/DeleteChromaSdkResponse"
   /heartbeat:
     # binds a127 app logic to a route
     x-swagger-router-controller: heartbeat
@@ -876,3 +889,7 @@ definitions:
           properties:
             result:
               type: integer
+  DeleteChromaSdkResponse:
+    properties:
+      result:
+        type: integer
