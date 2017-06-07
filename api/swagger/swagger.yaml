@@ -841,12 +841,15 @@ definitions:
         type: object
         description: Effect definition
         properties:
-          direction:
-            type: integer
-            description: 1 for RIGHT, 2 for LEFT
           color:
             type: integer
             description: Color value in BGR format
+          direction:
+            type: integer
+            description: Effect direction
+          duration:
+            type: integer
+            description: Effect duration
   EffectArray1dInput:
     type: array
     description: 1 dimensional array. Color values are in BGR format.
