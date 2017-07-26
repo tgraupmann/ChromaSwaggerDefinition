@@ -21,6 +21,16 @@ paths:
   /chromasdk:
     # binds a127 app logic to a route
     x-swagger-router-controller: chromasdk
+    put:
+      description: Check the REST version
+      # used as the method name of the controller
+      operationId: putChromaSdk
+      responses:
+        # responses may fall through to errors
+        default:
+          description: Response (POST)
+          schema:
+            $ref: "#/definitions/PutChromaSdkResponse"
     post:
       description: Initialize the Chroma SDK
       # used as the method name of the controller
@@ -61,10 +71,13 @@ definitions:
           type: string
       category:
         type: string
+  PutChromaSdkResponse:
+    properties:
+      version:
+        type: string
   PostChromaSdkResponse:
     properties:
       sessionid:
         type: string
       uri:
         type: string
-     
